@@ -1,0 +1,73 @@
+.transaction-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    justify-content: space-between;
+  
+  }
+  .transaction-list-container{
+    width: 48%;
+    height: fit-content;
+    position: relative;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 5px 0;
+  
+  }
+  .transaction-list-container h3,.amount-val{
+    font-weight: 500;
+    overflow-wrap: break-word;
+    margin: 10px auto;
+    width: 90%;
+  }
+  
+  .transaction-list-container .trash{
+  position: absolute;
+  bottom: 4%;
+  right: 4%;
+  color: rgb(255 5 0);
+  cursor: pointer;
+  font-size: 18px;
+  }
+  .transaction-list-container .edit{
+    position: absolute;
+    bottom: 20%;
+    right: 4%;
+    color: #F15412;
+    font-size: 18px;
+    cursor: pointer;
+    }
+    .update-button{
+        width: 80px;
+        padding: 7px 4px;
+        background-color: #F15412;
+        color: azure;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+      }
+      .update-button{
+        width: 60%;
+        margin: 10px 5px;
+      }
+      .amount-type{
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.801);
+      }
+      .edit-input{
+        width: 60%;
+        text-align: center;
+        border: none;
+        border-radius: 4px;
+        background-color: #efefef;
+        margin: 10px auto;
+        padding: 10px 0;
+      }
+      .edit-input:focus{
+        outline: none;
+      }

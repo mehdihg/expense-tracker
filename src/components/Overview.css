@@ -1,0 +1,49 @@
+.balance{
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 50px auto 15px auto;
+  
+  }
+  .balance h4{
+    margin:0;
+    font-size: 18px;
+    color:#F15412;
+  }
+  .overall-details{
+    margin: 0 auto;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 5px 0;
+  }
+  .overall-details div{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    }
+  .overall-details p{
+  margin: 15px 0;
+  font-weight: 500;
+   
+  }
+  .add-button{
+    width: 80px;
+    padding: 7px 4px;
+    background-color: #F15412;
+    color: azure;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+  }
+  .cancel-button{
+    width: 80px;
+    padding: 7px 4px;
+    background-color: white;
+    color: #F15412;
+    border-radius: 3px;
+    border: 1px solid #F15412;
+    cursor: pointer;
+  }
