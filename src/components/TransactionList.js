@@ -5,7 +5,7 @@ import { BiEdit } from "react-icons/bi";
 import { useState } from "react";
 import "./TransactionList.css";
 const TransactionList = ({
-filteredVal,
+  filteredVal,
   setTransaction,
   setFilteredVal,
   transaction,
@@ -17,12 +17,11 @@ filteredVal,
     const filteredList = transaction.filter((item) => item.id !== id);
     setTransaction(filteredList);
     setFilteredVal(filteredList);
+    localStorage.setItem("transaction", JSON.stringify(filteredList));
   };
   const editHandler = (id) => {
     handleEdit(id);
-    const transactionIndex = transaction.findIndex(
-      (item) => item.id === id
-    );
+    const transactionIndex = transaction.findIndex((item) => item.id === id);
     const transactionEdit = transaction[transactionIndex];
 
     setEdit(transactionEdit);
