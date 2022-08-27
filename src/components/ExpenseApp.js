@@ -39,10 +39,11 @@ const ExpenseApp = () => {
             "rgba(255, 99, 132, 0.9)",
             "#1fddbbe3",
           ],
-          maxBarThickness: 80,
+          maxBarThickness: 50,
           minBarLength: 10,
           borderRadius: 3,
-          barThickness: 70,
+          barThickness: 50,
+          barPercentage: 0.5,
         },
       ],
     });

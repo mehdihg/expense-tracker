@@ -29,6 +29,7 @@
 }
 .chartBar{
   margin: 50px 0;
+  width: auto !important;
 }
 
 
