@@ -12,6 +12,7 @@ const Transaction = ({ addTransaction, setTransactionShow }) => {
       ...formValues,
       [e.target.name]: e.target.value,
       id: Date.now(),
+      timeStamp: timeStamp(),
     });
   };
   const submitForm = (e) => {
@@ -23,6 +24,15 @@ const Transaction = ({ addTransaction, setTransactionShow }) => {
     setTransactionShow((prevState) => !prevState);
     addTransaction(e, formValues);
     setFormValues({ type: "expense", desc: "", amount: 0 });
+  };
+  const timeStamp = () => {
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+
+    let newdate = year + "/" + month + "/" + day;
+    return newdate;
   };
   return (
     <form onSubmit={submitForm} className="transaction">

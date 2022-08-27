@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
 import NavBar from "./NavBar";
 import Overview from "./Overview";
 import Transaction from "./Transaction";
 import TransactionList from "./TransactionList";
-
+import Chart from "chart.js/auto";
 const ExpenseApp = () => {
   const [expense, setExpense] = useState(0);
   const [income, setIncome] = useState(0);
@@ -12,7 +13,41 @@ const ExpenseApp = () => {
   const [searchVal, setSearchVal] = useState("");
   const [filteredVal, setFilteredVal] = useState([...transaction]);
 
-  const addTransaction = (e, formValues) => {
+  const [chartData, setChartData] = useState();
+  useEffect(() => {
+    const labels = filteredVal.map((item) => {
+      let time = item.timeStamp;
+      let types = item.type;
+
+      return `${time} ${types}`;
+    });
+    setChartData({
+      labels: labels,
+      datasets: [
+        {
+          id: filteredVal.map((item) => item.id),
+          label: "",
+          data: filteredVal.map((items) => items.amount),
+          backgroundColor: [
+            "#f15412e3",
+            "rgba(255, 159, 64, 0.9)",
+            "rgba(255, 205, 86, 0.9)",
+            "rgba(75, 192, 192, 0.9)",
+            "rgba(54, 162, 235, 0.9)",
+            "rgba(153, 102, 255, 0.9)",
+            "rgba(201, 203, 207, 0.9)",
+            "rgba(255, 99, 132, 0.9)",
+            "#1fddbbe3",
+          ],
+          maxBarThickness: 80,
+          minBarLength: 10,
+          borderRadius: 3,
+          barThickness: 70,
+        },
+      ],
+    });
+  }, [transaction, filteredVal]);
+  const addTransaction = (e, formValues, time) => {
     e.preventDefault();
     setTransaction([...transaction, formValues]);
     localStorage.setItem(
@@ -20,6 +55,7 @@ const ExpenseApp = () => {
       JSON.stringify([...transaction, formValues])
     );
   };
+
   useEffect(() => {
     if (localStorage.getItem("transaction")) {
       const getItem = JSON.parse(localStorage.getItem("transaction"));
@@ -99,6 +135,9 @@ const ExpenseApp = () => {
           handleEdit={handleEdit}
           submitEdit={submitEdit}
         />
+        {transaction.length ? (
+          <Bar data={chartData} className="chartBar" />
+        ) : null}
       </div>
     </div>
   );
